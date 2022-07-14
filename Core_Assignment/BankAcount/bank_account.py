@@ -19,6 +19,7 @@ class BankAccount:
         return self
     def withdraw(self, amount):
         if self.balance >= amount:
+
             self.balance -= amount
             return self
         else:
@@ -32,7 +33,7 @@ class BankAccount:
         return self
     def yield_interest(self):
         if  self.balance > 0:
-            self.balance *= self.int_rate
+            self.balance = (self.balance * self.int_rate) + self.balance
         return self
         # your code here
     def print_info(self):
@@ -42,6 +43,8 @@ class BankAccount:
 
 thiery_account = BankAccount(0.01,0)
 tom_account = BankAccount(0.03,0)
+intrest_test = BankAccount(0.1,1000)
 
-thiery_account.deposit(100).deposit(300).deposit(100).yield_interest().display_account_info().display_account_info().print_info()
-tom_account .deposit(200).deposit(200).withdraw(100).withdraw(50).withdraw(50).withdraw(100).display_account_info().print_info()
+# thiery_account.deposit(100).deposit(300).deposit(100).yield_interest().display_account_info().display_account_info().print_info()
+# tom_account .deposit(200).deposit(200).withdraw(100).withdraw(50).withdraw(50).withdraw(100).display_account_info().print_info()
+intrest_test.deposit(1000).yield_interest().print_info()
