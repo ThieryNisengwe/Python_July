@@ -9,7 +9,7 @@ class BankAcount:
     def deposit(self, amount, account,):
         if account == "Checkings":
             self.balance += amount
-        elif account == "savings":
+        elif account == "Savings":
             self.balance_2 += amount
         return self
 
