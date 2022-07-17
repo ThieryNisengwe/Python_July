@@ -1,0 +1,11 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+p{
+    background-color: peachpuff;
+    color: rebeccapurple;
+    padding: 10px;
+    display: inline-block;
+}

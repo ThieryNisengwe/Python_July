@@ -35,6 +35,7 @@ def heya(banana,num):
 @app.route('/')
 def index():
     return render_template("hello.html", phrase="Hello", times=5)	# notice the 2 new named arguments!
+    
 @app.route('/box')
 def boxes():
     return render_template("box.html", times= 3)
