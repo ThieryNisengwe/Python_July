@@ -7,15 +7,15 @@
 # 2 Finally, put the following code inside of server.py:
 
 from ast import Num
-from flask import Flask  # Import Flask to allow us to create our app
+from flask import Flask, render_template  # Import Flask to allow us to create our app
 # Create a new instance of the Flask class called "app"
 app = Flask(__name__)
 
 
 # The "@" decorator associates this route with the function immediately following
-@app.route('/')
+@app.route('/s')
 def hello_world():
-    return 'Hello World!'  # Return the string 'Hello World!' as a response
+    return render_template("index.html")  # Return the string 'Hello World!' as a response
 
 
 @app.route('/Thiery')
@@ -31,6 +31,13 @@ def hello(name):
 @app.route('/hello/<string:banana>/<int:num>')
 def heya(banana,num):
     return f"Hello {banana * num}"
+
+@app.route('/')
+def index():
+    return render_template("hello.html", phrase="Hello", times=5)	# notice the 2 new named arguments!
+@app.route('/box')
+def boxes():
+    return render_template("box.html", times= 3)
 
 
 if __name__ == "__main__":   # Ensure this file is being run directly and not from a different module
