@@ -7,7 +7,8 @@
 # 2 Finally, put the following code inside of server.py:
 
 from ast import Num
-from flask import Flask, render_template  # Import Flask to allow us to create our app
+# Import Flask to allow us to create our app
+from flask import Flask, render_template
 # Create a new instance of the Flask class called "app"
 app = Flask(__name__)
 
@@ -15,7 +16,8 @@ app = Flask(__name__)
 # The "@" decorator associates this route with the function immediately following
 @app.route('/s')
 def hello_world():
-    return render_template("index.html")  # Return the string 'Hello World!' as a response
+    # Return the string 'Hello World!' as a response
+    return render_template("index.html")
 
 
 @app.route('/Thiery')
@@ -28,17 +30,33 @@ def hello(name):
     print(name)
     return "Hello," + name
 
+
 @app.route('/hello/<string:banana>/<int:num>')
-def heya(banana,num):
+def heya(banana, num):
     return f"Hello {banana * num}"
+
 
 @app.route('/')
 def index():
-    return render_template("hello.html", phrase="Hello", times=5)	# notice the 2 new named arguments!
-    
+    # notice the 2 new named arguments!
+    return render_template("hello.html", phrase="Hello", times=5)
+
+
 @app.route('/box')
 def boxes():
-    return render_template("box.html", times= 3)
+    return render_template("box.html", times=3)
+
+
+@app.route('/lists')
+def render_lists():
+    # Soon enough, we'll get data from a database, but for now, we're hard coding data
+    student_info = [
+        {'name': 'Michael', 'age': 35},
+        {'name': 'John', 'age': 30},
+        {'name': 'Mark', 'age': 25},
+        {'name': 'KB', 'age': 27}
+    ]
+    return render_template("lists.html", random_numbers=[3, 1, 5], students=student_info)
 
 
 if __name__ == "__main__":   # Ensure this file is being run directly and not from a different module
