@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def checkerboard():
-    return render_template("index.html",x=8,y=8,a='black',b='blue')
+    return render_template("index.html",x=8,y=8,a='black',b='red')
 
 
 @app.route("/4")
