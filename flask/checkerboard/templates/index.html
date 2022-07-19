@@ -9,12 +9,18 @@
     
 </head>
 <body>
-    <h1>***Checkerboard***</h1>
+    <div class='top'>
+    <h1 >***Checkerboard***</h1>
+    </div>
     <table>
-        {%for i in range(8):%}
+        {%for i in range(y)%}
         <tr>
-            {%for j in range(8):%}
-            <td class="color{{(i+j)%2+1}}"></td>
+            {%for j in range(x)%}
+            {%if (i+j)%2 == 0%}  
+            <td style='background-color:{{a}}'></td>
+            {% else %}
+            <td style='background-color:{{b}}'></td>
+            {% endif %}
             {%endfor%}
         </tr>
         {%endfor%}
